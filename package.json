@@ -1,0 +1,47 @@
+{
+  "name": "f2-api",
+  "scripts": {
+    "test-int": "node_modules/gulp/bin/gulp.js test:int",
+    "test-bdd": "node_modules/gulp/bin/gulp.js test:bdd",
+    "test-unit": "node_modules/gulp/bin/gulp.js test:unit",
+    "test": "node_modules/gulp/bin/gulp.js test",
+    "jshint": "node_modules/gulp/bin/gulp.js jshint"
+  },
+  "dependencies": {
+    "async": "*",
+    "bluebird": "2.9.*",
+    "bunyan": "^1.4.0",
+    "chance": "0.7.*",
+    "fast-csv": "^0.6.0",
+    "jwt-simple": "*",
+    "moment": "*",
+    "mongoose": "*",
+    "newrelic": "^1.21.2",
+    "request": "*",
+    "restify": "*",
+    "rx": "2.5.*",
+    "underscore": "*",
+    "yargs": "*"
+  },
+  "devDependencies": {
+    "chai": "3.0.*",
+    "chai-as-promised": "^5.1.0",
+    "connect": "3.3.*",
+    "gulp": "~3.8.*",
+    "gulp-help": "~1.3.*",
+    "gulp-jshint": "~1.11.*",
+    "http": "*",
+    "mocha": "2.2.*",
+    "mocha-jenkins-reporter": "0.1.9",
+    "mongoose-mock": "^0.4.0",
+    "node-inspector": "*",
+    "nodemon": "*",
+    "proxyquire": "^1.6.0",
+    "sinon": "^1.15.4",
+    "sinon-chai": "^2.8.0",
+    "superagent": "*",
+    "swagger-tools": "0.8.*",
+    "tmp": "0.0.26"
+  },
+  "version": "0.1.0"
+}
