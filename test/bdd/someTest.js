@@ -52,7 +52,7 @@ describe('BlueBrid-Promise tests', function () {
 
     });
 
-    context.only("rejected promise", function () {
+    context("rejected promise", function () {
         var sut;
         var rejectedAsWell;
 
