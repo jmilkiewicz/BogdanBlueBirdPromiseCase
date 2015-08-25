@@ -5,15 +5,15 @@ var chaiAsPromised = require("chai-as-promised");
 var should = chai.should();
 var expect = chai.expect;
 // Uncomment chai.use(chaiAsPromised) to start see that tests which shall fail finally starts failing !
-// With chaiAsPromised is not enabled,  we see that all test pass  (which is wrong)
+// With chaiAsPromised not enabled,  we see that all tests pass (which is wrong)
 // and we also got some nasty `Unhandled rejection Error: Bogdan` on console
-// Why is all that? The answer seems pretty simple:
-// when chaiAsPromised is  NOT enable than to.be.fulfilled / to.be.rejected simply returns 'undefined' instead of promise.
+// Why is all that? The answer seems to be pretty simple:
+// if chaiAsPromised is NOT enable than to.be.fulfilled / to.be.rejected simply returns 'undefined' instead of promise.
 // Undefined is a 'correct' value for Mocha so it does not mark the test as failed
-// (so all tests are green but "shall fail" tests shall be red).
-// Fortunately bluebird (probably within application shutdown hook) will simply print out nasty Unhandled rejection Error
-// when there is no rejection callback registered for rejected promise. To check it simply run "resolved promise" context
-// (still wil chai.use(chaiAsPromised) commented out) and you shall see that all test pass (which is wrong) but not
+// (so all tests are green albeit "shall fail" tests shall be red).
+// Fortunately bluebird (probably within application shutdown hook) will simply print out a single nasty Unhandled rejection Error
+// when for every REJECTED promise ! To check it simply run ONLY "resolved promise" context
+// (with chai.use(chaiAsPromised) commented out) and you shall see that all test pass (which is wrong) but without any
 // Unhandled rejection Error on console. 'Unhandled rejection Error' is simply a warning from bluebird that your application
 // is about to shutdown but you still have "rejected promises" which are not handled.
 
@@ -50,11 +50,13 @@ describe('BlueBrid-Promise tests', function () {
 
     });
 
-    context("rejected promise", function () {
+    context.only("rejected promise", function () {
         var sut;
+        var rejectedAsWell;
 
         beforeEach(function () {
             sut = Promise.reject(new Error("Bogdan"));
+            rejectedAsWell = Promise.reject(new Error("Kuba"));
         });
 
         it("shall be not fulfilled", function () {
