@@ -1,14 +1,10 @@
 'use strict';
-var chai = require('../chaiConfigured');
-var expect = chai.expect;
-var _ = require('underscore');
-var moment = require('moment');
 var Promise = require('bluebird');
+var chai = require('chai');
 var chaiAsPromised = require("chai-as-promised");
-var sinon = require("sinon");
-var sinonChai = require("sinon-chai");
+var should = chai.should();
+var expect = chai.expect;
 chai.use(chaiAsPromised);
-chai.use(sinonChai);
 
 describe('BlueBrid-Promise tests', function () {
 
