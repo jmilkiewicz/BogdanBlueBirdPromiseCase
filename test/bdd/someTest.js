@@ -12,7 +12,8 @@ var expect = chai.expect;
 // Undefined is a 'correct' value for Mocha so it does not mark the test as failed
 // (so all tests are green albeit "shall fail" tests shall be red).
 // Fortunately bluebird (probably within application shutdown hook) will simply print out a single nasty Unhandled rejection Error
-// when for every REJECTED promise ! To check it simply run ONLY "resolved promise" context
+// when for every REJECTED promise (in our case 6 times (3 X rejected Bogdan and 3 times rejected Kuba )) !
+// To check it simply run ONLY "resolved promise" context
 // (with chai.use(chaiAsPromised) commented out) and you shall see that all test pass (which is wrong) but without any
 // Unhandled rejection Error on console. 'Unhandled rejection Error' is simply a warning from bluebird that your application
 // is about to shutdown but you still have "rejected promises" which are not handled.
@@ -20,6 +21,7 @@ var expect = chai.expect;
 // As soon as you have chaiAsPromised enabled than:
 // all "shall fail" tests  are finally red,
 // no Unhandled rejection Error: Bogdan on console
+// still Unhandled rejection Error: Kuba on console so simply remove `rejectedAsWell` completely
 //chai.use(chaiAsPromised);
 
 
